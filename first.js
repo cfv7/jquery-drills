@@ -47,7 +47,7 @@ function handleClicks() {
 // `handleClicks` function
 // we've defined above.
 $(handleClicks);
-	
+
 function doHelloWorld() {
   $('.js-hide-it').addClass('hidden');
   $('.js-hello-world').text('hello world from JS');
@@ -63,16 +63,71 @@ function doIt() {
 
 doIt();
 
-$('.thumbnail').click(function(event){
-	console.log('hello');
+$('.thumbnail img').click(function(event){
+	// console.log('hello');
+	var source = $(this).attr('src');
+	// console.log(source)
 	//$("img").attr("src")
 	// $('.hero img').addClass('hidden');
-	$('.hero img').replaceWith(this);
+	$('.hero img').attr('src', source);
 });
-
-
 // $('.thumbnail img').click(function(event){
 // 	$('.hero img').replaceWith(this);
 // });
 
 // }	
+
+// This event should cause the program to create 
+// the FizzBuzz sequence up to the number requested by the user.
+
+// For each element in the FizzBuzz sequence, your code should insert
+// an element into the .js-results div that looks like this:
+// <div class="fizz-buzz-item">
+//   <span>1</span>
+// </div>
+
+
+
+$('.submit-btn').click(function(event){
+	event.preventDefault();
+	$('.js-results').empty();
+
+	// "<div class='fizz-buzz-item'><span>0</span></div>" 
+	// "<div class='fizz-buzz-item'><span>fizzbuzz</span></div>" 
+	// =>
+	// "<div class='fizz-buzz-item'><span>${ content }</span></div>" 
+
+
+	var numPick = $('#number-choice').val();
+		function addItem(i) {  
+			$('.js-results').append(
+				`<div class='fizz-buzz-item'><span>${i}</span></div>` 
+			);
+		}
+		for (var i = 0; i <= numPick; i++){
+			if (i === 0){
+				addItem(0);
+			}
+			else if (i % 15 === 0){
+				addItem('fizzbuzz');
+			}
+			else if (i % 3 === 0){
+				addItem('fizz');
+			}
+			else if (i % 5 === 0){
+				addItem('buzz');
+			}
+			else{
+				addItem(i);
+			}
+		}
+});
+
+
+
+
+
+
+
+
+
