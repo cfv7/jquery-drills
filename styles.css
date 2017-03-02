@@ -30,6 +30,11 @@ a.thumbnail:hover {
 .thumbnail img {
   max-height: 100%;
 }
+
 .hidden {
   display: none;
+}
+
+.complete {
+  text-decoration: line-through;
 }
