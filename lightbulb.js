@@ -6,11 +6,7 @@
 // to appear to turn on, and any other lit bulbs off.
 $(document).ready(function(){
   $('.js-lightbulb').click(function(event){
-    $('.js-lightbulb').each(function() {
-      $(this).removeClass('bulb-on');
-    //image.removeClass('bulb-on');
-    });
-    // for(var i = 0; i < )
+    $('.js-lightbulb').removeClass('bulb-on');
     $(this).addClass('bulb-on');
   });
 })

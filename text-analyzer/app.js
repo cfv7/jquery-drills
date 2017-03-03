@@ -1,23 +1,34 @@
 $(document).ready(function(){
 	function wordCount(text){
-		console.log(text.split(" ").length);
+		return text.split(" ").length;
 	}
 
 	function uniqueWordCount(text){
 		var words = text.split(" ");
 		let unique = [...new Set(words)]; // 	NEED AN EXPLANATION PLZ
-		console.log(unique.length);
+		return unique.length;
 	}
 
 	function averageWordLength(text){
 		let words = text.split(" ");
 		let join = words.join('');
 		let len = join.length;
-		console.log(join);
 		let avg = len / words.length;
-		console.log(typeof len, typeof words.length)
-		console.log(avg);
+		return avg;
 	}
+
+	$('form').submit(function(event){
+		$('dl').removeClass('hidden');
+		event.preventDefault();
+		var textArea = $('textarea').val()
+			console.log(textArea)
+		$('#wordCount').html(wordCount(textArea));
+		$('#uniqueWordCount').html(uniqueWordCount(textArea));
+		$('#avgWordLen').html(averageWordLength(textArea));
+
+
+	})
+
 
 
 	console.log("aareallylongstring".length);
